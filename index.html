@@ -60,9 +60,24 @@
     }
 
     function openWindow() {
+      liff.openWindow({
+        url: "https://google.com",
+        external: true
+      })
+
+
+
     }
 
     async function getFriendship() {
+      const friend = await lift.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
+      if(!friendFlag){
+        if(confirm("กรุณารับ  bot เป็นเพื่อนนะ")){
+          window.location = "https://google.com"
+        }
+
+      }
     }
 
     async function sendMsg() {
@@ -131,7 +146,7 @@
       getEnvironment()
       getUserProfile()
       getContext()
-      // getFriendship()
+      getFriendship()
       // createUniversalLink()
     }
     main()
